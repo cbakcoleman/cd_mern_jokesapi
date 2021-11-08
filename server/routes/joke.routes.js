@@ -14,5 +14,5 @@ module.exports = app => {
     app.get("/api/jokes/:id", findOneJoke);
     app.put("/api/jokes/:id", updateJoke);
     app.post("/api/jokes/new", createNewJoke);
-    app.delete("/api/jokes/update/:id", deleteJoke);
+    app.delete("/api/jokes/delete/:id", deleteJoke);
 }

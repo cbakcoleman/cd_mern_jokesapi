@@ -19,7 +19,7 @@ module.exports = {
     findOneJoke : (req, res) => {
         // specify 'byID' in method, then don't need to use _id: (key)
         // Joke.findOne({ _id: req.params.id })
-        Joke.findOneById( req.params.id )
+        Joke.findById( req.params.id )
         .then(oneJoke => res.json({ message: "Success!", joke: oneJoke}))
         .catch(err => res.json({ message: "Pobody's Nerfect!", error: err}));
     },
@@ -31,16 +31,16 @@ module.exports = {
     },
     // UPDATE
     updateJoke : (req, res) => {
-        Joke.findOneByIdAndUpdate(req.params.id, req.body,
+        Joke.findByIdAndUpdate(req.params.id, req.body,
             // by default Mongoose does not run validators on update, need to explicitly say run validators and 'new:true' says return new object created, if not specified will return previous (un-updated) object
             { new: true, runValidators: true }
         )
-            .then(updateJoke => res.json({ message: "Success!", joke: updatedJoke }))
+            .then(updatedJoke => res.json({ message: "Success!", joke: updatedJoke }))
             .catch(err => res.json({ message: "Pobody's Nerfect!", error: err}));
     },
     // DESTROYYYY
     deleteJoke : (req, res) => {
-        Joke.findOneByIdAndDelete( req.params.id )
+        Joke.findByIdAndDelete( req.params.id )
         .then(result => res.json({ message: "Success!", result: result }))
         .catch(err => res.json({ message: "Pobody's Nerfect!", error: err}));
     }
