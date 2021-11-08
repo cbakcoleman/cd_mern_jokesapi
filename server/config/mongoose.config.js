@@ -12,3 +12,5 @@ mongoose.connect("mongodb://localhost/" + db_name, {
     // Don't forget to use backticks for string interpolation
     .then(() => console.log(`Established a connection to the ${db_name} database`))
     .catch(error => console.log("Something went wrong when connecting to the database", error))
+
+// This config file attaches project to a databse
