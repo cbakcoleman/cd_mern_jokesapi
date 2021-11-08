@@ -9,4 +9,8 @@ app.use(express.json(), express.urlencoded({extended: true}))
 // 3. connect to mongodb, require file below
 require("./config/mongoose.config");
 
+// 7. Import functions to server
+const routesFunction = require("./routes/joke.routes");
+routesFunction(app);
+
 app.listen(PORT, () => console.log(`Server up on port: ${PORT}`))

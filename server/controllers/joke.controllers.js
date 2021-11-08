@@ -1,3 +1,4 @@
+// 5. Use Mongoose Model to create CRUD functions
 // All CRUD operations
 // import object (joke model) into controller
 const Joke = require("../models/joke.models")
@@ -11,7 +12,7 @@ module.exports = {
         // This function goes to the database to query
         Joke.find()
         // Convention that if catch response has two keys, then success response should have two keys also (instead of just res.json({jokes:allDaJokes})), both responses should be in a unified/similar manner
-        .then(allDaJokes => res.json({ message: "Success!", jokes: AllDaJokes}))
+        .then(allDaJokes => res.json({ message: "Success!", jokes: allDaJokes}))
         .catch(err => res.json({ message: "Pobody's Nerfect!", error: err}));
     },
     // READ (ONE)
@@ -45,4 +46,4 @@ module.exports = {
     }
 }
 
-// We will import these controllers  into our routes to query the DB ( I think! )
+// We will import this controllers object  into our routes to query the DB ( I think! )
